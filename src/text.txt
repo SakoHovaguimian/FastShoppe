@@ -1,0 +1,34 @@
+Items: 
+
+    -- update model to have time created, updated
+    -- update to have quantity
+    -- have user object show up 
+
+Users: 
+
+    -- update model to have time created, updated
+    -- CRUD
+    -- Get items by user_id
+
+Order
+
+    -- model: id, totalPrice, item_id, quantity, user_id, shippingAddress
+    -- get order with user and item info with order info
+
+SearchHistory:
+
+    -- model: id, query, time created, user_Id
+
+Services: 
+
+    -- add init for DB and call function on main
+    -- move item routes into items and move user routes in users
+        with register routes call or something
+        i.e 
+        ## registerItemRoutes(get_db)
+        ## registerUserRoutes(get_db)
+        def registerRoutes(db: Session = Depends(get_db)):
+        have internal session property that is set when above is called in main
+
+
+
