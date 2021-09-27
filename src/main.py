@@ -56,6 +56,44 @@ def get_item(item_id: int, db: Session = Depends(get_db)):
 
     return item
 
+## Get Items by Tag
+@app.get(
+    "/items/tag/{tag_id}",
+    tags=["Item"],
+    status_code=200,
+    response_model=List[schemas.ItemResponse]
+)
+def get_items(tag_id: int, db: Session = Depends(get_db)):
+    
+    items =\
+    (
+        db
+        .query(models.Item)
+        .filter(models.Item.tag_id == tag_id)
+        .all()
+    )
+
+    return items
+
+## Get Items by Status
+@app.get(
+    "/items/status/{status}",
+    tags=["Item"],
+    status_code=200,
+    response_model=List[schemas.ItemResponse]
+)
+def get_items(status: int, db: Session = Depends(get_db)):
+    
+    items =\
+    (
+        db
+        .query(models.Item)
+        .filter(models.Item.status == status)
+        .all()
+    )
+
+    return items
+
 ## Create Item
 @app.post(
     "/items",
@@ -65,10 +103,13 @@ def get_item(item_id: int, db: Session = Depends(get_db)):
 )
 def create_item(item: schemas.ItemCreateResponse, db: Session = Depends(get_db)):
     
+    print(item.status)
+
     new_item = models.Item(
         title = item.title,
         description = item.description,
         price = item.price,
+        status = item.status,
         user_id = item.user_id,
         tag_id = item.tag_id
     )
@@ -105,6 +146,7 @@ def update_item(item_id: int, item: schemas.ItemUpdateResponse, db: Session = De
     {
         "title": item.title,
         "description": item.description,
+        "status" : item.status,
         "price": item.price 
     })
     db.commit()

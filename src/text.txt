@@ -15,6 +15,11 @@ Order
     -- model: id, totalPrice, item_id, quantity, user_id, shippingAddress
     -- get order with user and item info with order info
 
+Tag 
+
+    -- attach tags to items as categories
+    -- make it an enum (choice in python)
+
 SearchHistory:
 
     -- model: id, query, time created, user_Id

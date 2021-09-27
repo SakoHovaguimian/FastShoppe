@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from sqlalchemy.sql.sqltypes import Float
 
 class UserResponse(BaseModel):
@@ -24,6 +24,7 @@ class ItemCreateResponse(BaseModel):
     title: str
     description: str
     price: float
+    status: int
     user_id: int
     tag_id: int
 
@@ -35,6 +36,7 @@ class ItemUpdateResponse(BaseModel):
     title: str
     description: str
     price: float
+    status: int
 
     class Config:
         orm_mode = True
@@ -45,6 +47,7 @@ class ItemResponse(BaseModel):
     title: str
     description: str
     price: float
+    status: int
 
     tag: Tag
     user: UserResponse
