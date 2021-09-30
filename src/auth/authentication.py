@@ -42,4 +42,3 @@ def get_token(
         'username': user.name,
         'email': user.email
     }
-    print('tEST')

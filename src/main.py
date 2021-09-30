@@ -28,7 +28,6 @@ def missing_item_expeption_handler(request: Request, exc: MissingItemException):
 
     return JSONResponse(
 
-
         status_code=statusCode,
         content={
             'error': {
@@ -44,7 +43,6 @@ def missing_user_expeption_handler(request: Request, exc: MissingUserException):
     statusCode = status.HTTP_404_NOT_FOUND
 
     return JSONResponse(
-
 
         status_code=statusCode,
         content={

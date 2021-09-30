@@ -73,3 +73,13 @@ def create_user(
     db.refresh(newUser)
 
     return newUser
+
+def get_user_by_username(db: Session, name: str):
+
+  user = db.query(models.User).filter(models.User.name == name).first()
+
+  if not user:
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+      detail=f'User with username {name} not found')
+
+  return user

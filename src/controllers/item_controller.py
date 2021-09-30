@@ -7,7 +7,7 @@ from src import schemas, models
 from src.custom_errors import MissingItemException
 from src.database import get_db
 from sqlalchemy.orm import Session
-from src.auth.oauth2 import oauth2_scheme
+from src.auth.oauth2 import get_current_user, oauth2_scheme
 
 router = APIRouter(
     prefix='/items',
@@ -24,7 +24,7 @@ router = APIRouter(
 )
 def get_items(
     db: Session = Depends(get_db),
-    token: str = Depends(oauth2_scheme)
+    current_user: schemas.UserResponse = Depends(get_current_user)
 ):
     
     items = db.query(models.Item).all()
