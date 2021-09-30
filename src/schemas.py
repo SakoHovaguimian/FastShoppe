@@ -11,6 +11,15 @@ class UserResponse(BaseModel):
     class Config:
         orm_mode = True
 
+class UserCreateResponse(BaseModel):
+    
+    name: str
+    email: str
+    password: str
+
+    class Config:
+        orm_mode = True
+
 class Tag(BaseModel):
     
     id: int

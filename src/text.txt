@@ -1,3 +1,5 @@
+Save Image to Disk and see if you cann reutrn and render it
+
 Items: 
 
     -- update model to have time created, updated
@@ -26,6 +28,8 @@ SearchHistory:
 
 Services: 
 
+    -- Controller pattern and store pattern
+    -- init with DB, Logger, Error Handler
     -- add init for DB and call function on main
     -- move item routes into items and move user routes in users
         with register routes call or something
