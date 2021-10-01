@@ -3,10 +3,10 @@ from fastapi import APIRouter
 from fastapi.param_functions import Depends
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.orm.session import Session
-from src.custom_errors import MissingUserException
-from src.database import get_db
-from src import models
-from src.hash import Hash
+from custom_errors import MissingUserException
+from database import get_db
+import models
+from hash import Hash
 from . import oauth2
 
 router = APIRouter(

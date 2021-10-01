@@ -3,11 +3,11 @@ from fastapi import FastAPI, Depends, status, Response, HTTPException, APIRouter
 from fastapi.param_functions import Query
 from sqlalchemy.sql.functions import mode, user
 from typing import List, Optional
-from src import schemas, models
-from src.custom_errors import MissingItemException
-from src.database import get_db
+import schemas, models
+from custom_errors import MissingItemException
+from database import get_db
 from sqlalchemy.orm import Session
-from src.auth.oauth2 import get_current_user, oauth2_scheme
+from auth.oauth2 import get_current_user, oauth2_scheme
 
 router = APIRouter(
     prefix='/items',

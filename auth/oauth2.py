@@ -5,9 +5,9 @@ from datetime import datetime, timedelta
 from jose import jwt
 from jose.exceptions import JWTError
 from sqlalchemy.orm import Session
-from src.database import get_db
+from database import get_db
 from fastapi import HTTPException, status
-from src.controllers import user_controller
+from controllers import user_controller
  
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
  
@@ -15,6 +15,7 @@ SECRET_KEY = '77407c7339a6c00544e51af1101c4abb4aea2a31157ca5f7dfd87da02a628107'
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
  
+ ## this gets token for user; could be used for new token when old one expires
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
   to_encode = data.copy()
@@ -29,6 +30,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
   return encoded_jwt
 
+## what we use to get the token for the currennt user. This would be login
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 
   credentials_exception = HTTPException(

@@ -6,7 +6,7 @@ from sqlalchemy import Table, Enum
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy.sql.expression import true
 from sqlalchemy.ext.associationproxy import association_proxy
-from .database import Base
+from database import Base
 
 class Tag(Base):
 

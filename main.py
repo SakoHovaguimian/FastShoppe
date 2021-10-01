@@ -2,15 +2,15 @@ from fastapi import FastAPI, Depends, status, Response, HTTPException, Request
 from fastapi.param_functions import Query
 from fastapi.responses import JSONResponse
 from sqlalchemy.sql.functions import mode, user
-from . import schemas, models
-from .database import engine, SessionLocal
+import schemas, models
+from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 from typing import Optional
 
 from typing import List
-from . controllers import item_controller, user_controller
-from .custom_errors import MissingItemException, MissingUserException
-from . auth import authentication
+from controllers import item_controller, user_controller
+from custom_errors import MissingItemException, MissingUserException
+from auth import authentication
 
 app = FastAPI()
 

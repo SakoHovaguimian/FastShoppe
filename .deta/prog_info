@@ -1,0 +1,1 @@
+{"id":"8a091896-7147-4ca6-8b19-d78ab54d21af","space":11442,"runtime":"python3.9","name":"FastShoppe","path":"47b3is","project":"b0xu5vuw","account":"144798365827","region":"us-east-1","deps":["fastapi","uvicorn","sqlalchemy","passlib","bcrypt","sqlalchemy_utils","python-jose","python-multipart"],"envs":null,"public":true,"log_level":"debug","cron":""}
